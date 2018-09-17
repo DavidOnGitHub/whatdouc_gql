@@ -1,0 +1,32 @@
+module.exports = `
+  extend type Query {
+    questions(region: RegionInput): [Question]
+    myQuestions: [Question] @secure
+  }
+
+  extend type Mutation {
+    postQuestion(question: QuestionInput): Question @secure
+    saveQuestion(questionId: String, question: QuestionInput): Question @secure
+  }
+
+  type Question {
+    _id: String!
+    subject: String
+    content: String
+    location: Location
+    created: Date
+    user: User
+    answers: [Answer]
+  }
+
+  input QuestionInput {
+    subject: String,
+    content: String,
+    location: LocationInput
+  }
+
+  input RegionInput {
+    type: String!
+    coordinates: [[[Float]]]
+  }
+`

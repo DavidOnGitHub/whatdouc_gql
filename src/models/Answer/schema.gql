@@ -1,0 +1,26 @@
+module.exports = `
+  extend type Query {
+    answersByQuestionId(questionId: String!): [Answer]
+  }
+
+  extend type Mutation {
+    postAnswer(answer: AnswerInput!): Answer @secure
+    saveAnswer(answer: AnswerInput!): Answer @secure
+    deleteAnswer(answerId: String!): Answer @secure
+  }
+
+  type Answer {
+    _id: String
+    content: String!
+    location: Location
+    question: Question
+    user: User
+  }
+
+  input AnswerInput {
+    _id: String
+    questionId: String
+    content: String
+    location: LocationInput
+  }
+`

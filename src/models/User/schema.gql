@@ -1,0 +1,12 @@
+module.exports = `
+  type User {
+    _id: ID,
+    username: String,
+    email: String,
+    isActivated: Boolean
+  }
+
+  extend type Mutation {
+    changePassword(oldPassword: String!, newPassword: String!): String @secure
+  }
+`

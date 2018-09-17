@@ -1,0 +1,21 @@
+module.exports = `
+  scalar Date
+
+  directive @secure on FIELD_DEFINITION
+
+  type Query {
+    date: Date
+  }
+
+  type Mutation {
+    _empty: String
+  #   login(username: String!, password: String!): LoginOutput
+  #   register(email: String!): String
+  #   activate(activationCode: String!, password: String!): User
+  }
+
+  # type LoginOutput {
+  #   user: User
+  #   token: String
+  # }
+`;
