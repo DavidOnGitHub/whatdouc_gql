@@ -17,22 +17,25 @@ const parseHtml = function(filePath, options) {
 module.exports.sendRegisterEmail = (email, activationCode) => {
   console.log(activationCode);
   return Promise.resolve();
-  // const transporter = nodeMailer.createTransport('smtps://whatdouc.banyula%40gmail.com:Whatdouc1234@smtp.gmail.com');
+  // const transporter = nodeMailer.createTransport(
+  //   'smtps://whatdouc.banyula%40gmail.com:Whatdouc1234@smtp.gmail.com'
+  // );
   // const mailOptions = {
-  //     from: '"Whatdouc" <whatdouc.banyula@gmail.com>',
-  //     to: 'xiaoguang.d@gmail.com',
-  //     subject: 'One last step to sign up for whatdouc',
-  //     html: parseHtml('../templates/register.html', {activationCode})
+  //   from: '"Whatdouc" <whatdouc.banyula@gmail.com>',
+  //   to: 'xiaoguang.d@gmail.com',
+  //   subject: 'One last step to sign up for whatdouc',
+  //   html: parseHtml('../templates/register.html', { activationCode })
   // };
-  //
+
   // console.log('sending register email...');
   // return new Promise((resolve, reject) => {
-  //     transporter.sendMail(mailOptions, function(error, info){
-  //         if(error){
-  //             return reject(error);
-  //         }
-  //         console.log('email sent!');
-  //         return resolve(info.response);
-  //     });
+  //   transporter.sendMail(mailOptions, function(error, info) {
+  //     if (error) {
+  //       console.log(error);
+  //       return reject(error);
+  //     }
+  //     console.log('email sent!');
+  //     return resolve(info.response);
+  //   });
   // });
 };

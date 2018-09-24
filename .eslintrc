@@ -1,0 +1,16 @@
+{
+  "plugins": ["node"],
+  "extends": ["eslint:recommended", "plugin:node/recommended", "plugin:prettier/recommended"],
+  "rules": {
+      "node/exports-style": ["error", "module.exports"],
+      "node/no-unpublished-bin": "error",
+      "node/process-exit-as-throw": "error",
+      "node/no-unsupported-features": "off",
+      "no-console": "off",
+      "semi": ["error", "always"],
+      "prettier/prettier": [
+          "error",
+          { "singleQuote": true }
+      ]
+  }
+}

@@ -14,20 +14,19 @@ router.post('/', validateRegister, (req, res) => {
       if (user) {
         res.status(409).send('Email already registered');
       } else {
-        // const newUser = new UserModel();
-        // const activationCode = randomString(4);
-        // sendRegisterEmail(email, activationCode).then(() => {
-        //   Object.assign(newUser, {
-        //     username: email,
-        //     email,
-        //     activationCode,
-        //     isActivated: false
-        //   });
-        //   newUser.save().then(() => {
-        //     res.status(200).send('User created');
-        //   });
-        // });
-        res.end();
+        const newUser = new UserModel();
+        const activationCode = randomString(64);
+        sendRegisterEmail(email, activationCode).then(() => {
+          Object.assign(newUser, {
+            username: email,
+            email,
+            activationCode,
+            isActivated: false
+          });
+          newUser.save().then(() => {
+            res.status(200).send('User created');
+          });
+        });
       }
     });
 });

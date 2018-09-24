@@ -13,10 +13,12 @@ router.post('/', validateActivate, async (req, res) => {
 
     user.password = password;
     delete user.activationCode;
-    const newUser = await user.save();
-    res.json(newUser.toJson());
+    user.isActivated = true;
+    await user.save();
+    res.end('Activation successful');
   } catch (error) {
     console.log(error);
+    res.status(500).end(error);
   }
 });
 
