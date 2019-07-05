@@ -22,7 +22,9 @@ module.exports = `
   input QuestionInput {
     subject: String,
     content: String,
-    location: LocationInput
+    location: LocationInput,
+    upVotes: Int,
+    downVotes: Int
   }
 
   input RegionInput {

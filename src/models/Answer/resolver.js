@@ -11,7 +11,12 @@ module.exports = {
   },
   Mutation: {
     postAnswer: (_, { answer }, context) => {
-      const newAnswer = Object.assign(new AnswerModel(), answer, { userId: context.user._id, created: moment().utc().format() });
+      const newAnswer = Object.assign(new AnswerModel(), answer, {
+        userId: context.user._id,
+        created: moment()
+          .utc()
+          .format()
+      });
       return newAnswer.save();
     },
     saveAnswer: async (_, { answer }, context) => {
@@ -26,7 +31,7 @@ module.exports = {
     deleteAnswer: async (_, { answerId }) => {
       await AnswerModel.deleteOne({ _id: answerId }).exec();
       return { _id: answerId };
-    },
+    }
   },
   Answer: {
     question: (answer, args, context) => {

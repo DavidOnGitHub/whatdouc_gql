@@ -7,10 +7,10 @@ const { sendRegisterEmail } = require('../../utils/emailUtils');
 const { validateRegister } = require('./request-validator');
 
 router.post('/', validateRegister, (req, res) => {
-  const email = req.body.email.toLowerCase();
+  const email = req.body.username.toLowerCase();
   UserModel.findOne({ email })
     .exec()
-    .then(user => {
+    .then(async user => {
       if (user) {
         res.status(409).send('Email already registered');
       } else {
@@ -21,7 +21,8 @@ router.post('/', validateRegister, (req, res) => {
             username: email,
             email,
             activationCode,
-            isActivated: false
+            isActivated: false,
+            password: req.body.password
           });
           newUser.save().then(() => {
             res.status(200).send('User created');
