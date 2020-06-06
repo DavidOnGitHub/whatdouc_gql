@@ -9,7 +9,7 @@
     "node": ">=8"
   },
   "dependencies": {
-    "apollo-server": "^2.0.5",
+    "apollo-server": "^2.14.2",
     "apollo-server-express": "^2.0.4",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
